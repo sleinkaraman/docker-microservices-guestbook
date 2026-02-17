@@ -1,0 +1,30 @@
+
+services:
+  app:
+    build: .
+    ports:
+      - "5001:5000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=guestbook
+      - DB_USER=postgres
+      - DB_PASS=password
+      - REDIS_HOST=redis
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=guestbook
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:alpine
+
+volumes:
+  postgres_data:
