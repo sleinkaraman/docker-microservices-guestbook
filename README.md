@@ -46,7 +46,7 @@ The system consists of three main services:
 ### Installation & Deployment
 #### 1. Clone the repository:
 ```bash
-git clone https://github.com/selinkaraman/ddocker-microservices-guestbook.git
+git clone https://github.com/selinkaraman/docker-microservices-guestbook.git
 cd docker-microservices-guestbook
 ```
 #### 2. Run the services:
